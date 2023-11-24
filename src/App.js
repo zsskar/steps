@@ -10,36 +10,46 @@ function App() {
   ];
 
 
-  const [step,setStep] = useState(0);
+  const [step, setStep] = useState(0);
+  const [isOpen, setIsOpen] = useState(true);
 
-  function next(){
+  function next() {
     setStep(step + 1);
   }
 
-  function prev(){
+  function prev() {
     setStep(step - 1);
   }
 
+
   return (
     <>
-    <div className='header'>
-      <h2 className='text'>Steps</h2>
-    </div>
-    <div className="steps">
-      <div className="number">
-        <div style={step >=0 ? {backgroundColor: '#7950f2',color:'white'} :{backgroundColor: '#799', color:'black'}}>1</div>
-        <div style={step >=1 ? {backgroundColor: '#7950f2',color:'white'} :{backgroundColor: '#799',color:'black'}}>2</div>
-        <div style={step >=2 ? {backgroundColor: '#7950f2',color:'white'} :{backgroundColor: '#799',color:'black'}}>3</div>
+      <div className='crossHeader'>
+        <b style={{color:isOpen ? 'green' : 'red'}}>{isOpen? 'Open': 'Closed'}</b><span style={{ float : 'right ',cursor : 'pointer' }} onClick={() => setIsOpen(!isOpen)}>&times;</span>
       </div>
 
-      <p className="message">{msgs[step]}</p>
+      {isOpen && (
+        <>
+          <div className='header'>
+            <h2 className='text'>Steps</h2>
+          </div><div className="steps">
+            <div className="number">
+              <div style={step >= 0 ? { backgroundColor: '#7950f2', color: 'white' } : { backgroundColor: '#cccccc', color: 'black' }}>1</div>
+              <div style={step >= 1 ? { backgroundColor: '#7950f2', color: 'white' } : { backgroundColor: '#cccccc', color: 'black' }}>2</div>
+              <div style={step >= 2 ? { backgroundColor: '#7950f2', color: 'white' } : { backgroundColor: '#cccccc', color: 'black' }}>3</div>
+            </div>
 
-      <div className="buttons">
-        <button style={step !==0 ? {backgroundColor: '#7950f2',color:'white'} :{color:'black'}} disabled={step === 0} onClick={prev}><span>&larr;</span> Previous</button>
-        <button style={step < msgs.length - 1 ? {backgroundColor: '#7950f2',color:'white'} :{color:'black',backgroundColor :'#cccccc'}} disabled={step === msgs.length - 1} onClick={next}>Next <span>&rarr;</span></button>
-      </div>
-    </div>
+            <p className="message">{msgs[step]}</p>
+
+            <div className="buttons">
+              <button style={step !== 0 ? { backgroundColor: '#7950f2', color: 'white' } : { color: 'black' }} disabled={step === 0} onClick={prev}><span>&larr;</span> Previous</button>
+              <button style={step < msgs.length - 1 ? { backgroundColor: '#7950f2', color: 'white' } : { color: 'black', backgroundColor: '#cccccc' }} disabled={step === msgs.length - 1} onClick={next}>Next <span>&rarr;</span></button>
+            </div>
+          </div>
+        </>
+      )}
     </>
+
   );
 }
 

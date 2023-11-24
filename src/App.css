@@ -1,9 +1,19 @@
+.crossHeader{
+  width: 800px;
+  margin: auto;
+  height: 2px;
+  font-size: 20px;
+  margin-top: 30px;
+}
+.crossHeader span{
+  font-weight: bold;
+  font-size: 40px;
+}
 .header{
   background-color: rgb(121, 80, 242);
   width: 800px;
   height: 100px;
   margin: auto;
-  margin-top: 30px;
   border-top-right-radius: 30px;
 -moz-border-top-right-radius: 30px;
 }
@@ -19,6 +29,8 @@
   height: 400px;
   background-color: gainsboro;
   margin: auto;
+  border: 0.5px solid black;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .1);
 border-bottom-left-radius: 30px;
 -moz-border-bottom-left-radius: 30px;
 }
@@ -47,7 +59,7 @@ border-bottom-left-radius: 30px;
 
 .buttons button {
   width: 100px;
-  height: 35px;
+  height: 40px;
   font-weight: bold;
   font-size: 15px;
   line-height: 20px;
