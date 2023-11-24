@@ -9,19 +9,15 @@ function App() {
     "This is Third Message !"
   ];
 
-  const [msg, setMsg] = useState(msgs[0]);
-  let [step,setStep] = useState(0);
+
+  const [step,setStep] = useState(0);
 
   function next(){
-    step = step + 1;
-    setStep(step);
-    setMsg(msgs[step]);
+    setStep(step + 1);
   }
 
   function prev(){
-    step = step - 1;
-    setStep(step);
-    setMsg(msgs[step]);
+    setStep(step - 1);
   }
 
   return (
@@ -36,7 +32,7 @@ function App() {
         <div style={step >=2 ? {backgroundColor: '#7950f2',color:'white'} :{backgroundColor: '#799',color:'black'}}>3</div>
       </div>
 
-      <p className="message">{msg}</p>
+      <p className="message">{msgs[step]}</p>
 
       <div className="buttons">
         <button style={step !==0 ? {backgroundColor: '#7950f2',color:'white'} :{color:'black'}} disabled={step === 0} onClick={prev}><span>&larr;</span> Previous</button>
