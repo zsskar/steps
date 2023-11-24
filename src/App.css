@@ -19,8 +19,6 @@
   height: 400px;
   background-color: gainsboro;
   margin: auto;
-  /* border-bottom-left-radius: 12%;
-border-bottom-right-radius: 12%; */
 border-bottom-left-radius: 30px;
 -moz-border-bottom-left-radius: 30px;
 }
