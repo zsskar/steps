@@ -14,18 +14,18 @@ function App() {
   const [isOpen, setIsOpen] = useState(true);
 
   function next() {
-    setStep(step + 1);
+    setStep((s) => s + 1);
   }
 
   function prev() {
-    setStep(step - 1);
+    setStep((s) => s - 1);
   }
 
 
   return (
     <>
       <div className='crossHeader'>
-        <b style={{color:isOpen ? 'green' : 'red'}}>{isOpen? 'Open': 'Closed'}</b><span style={{ float : 'right ',cursor : 'pointer' }} onClick={() => setIsOpen(!isOpen)}>&times;</span>
+        <b style={{ color: isOpen ? 'green' : 'red' }}>{isOpen ? 'Open' : 'Closed'}</b><span tooltip="Close" style={{ float: 'right ', cursor: 'pointer' }} onClick={() => setIsOpen((is) =>!is)}>&times;</span>
       </div>
 
       {isOpen && (
